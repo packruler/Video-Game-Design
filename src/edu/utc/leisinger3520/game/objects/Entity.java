@@ -120,4 +120,20 @@ public abstract class Entity {
     public synchronized void setActive(boolean setTo) {
         active = setTo;
     }
+
+    public double getX() {
+        return hitbox.getX();
+    }
+
+    public double getY() {
+        return hitbox.getY();
+    }
+
+    public double getWidth() {
+        return hitbox.getWidth();
+    }
+
+    public double getHeight() {
+        return hitbox.getHeight();
+    }
 }

@@ -17,7 +17,7 @@ public class MainGame extends Scene {
 
     public final LinkedList<Entity> ENTITIES = new LinkedList<>();
     public final LinkedList<Entity> PROJECTILES = new LinkedList<>();
-    private final FramerateDisplay FPS_DISPLAY = new FramerateDisplay();
+    private final FramerateDisplay FPS_DISPLAY = FramerateDisplay.getInstance();
 
     public static MainGame getInstance() {
         if (instance == null)

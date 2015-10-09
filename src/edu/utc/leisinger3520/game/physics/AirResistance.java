@@ -7,8 +7,7 @@ import org.lwjgl.util.vector.Vector2f;
  */
 public class AirResistance extends Force {
     private static AirResistance instance = new AirResistance();
-    private static Vector2f xResistance = new Vector2f(.0001f, 0);
-    private static Vector2f yResistance = new Vector2f(0, .0001f);
+    private static final float resRatio = 6000;
 
     public static AirResistance getInstance() {
         return instance;
@@ -21,14 +20,14 @@ public class AirResistance extends Force {
     }
 
     @Override
-    protected void addForce(Vector2f velocity, float delta) {
+    protected void addForce(Vector2f velocity, float delta, float mass) {
         if (velocity.getX() != 0) {
             if (velocity.getX() < 0) {
-                velocity.setX(velocity.getX() + (xResistance.getX() * delta));
+                velocity.setX(velocity.getX() - (((velocity.getX() / resRatio) * (delta / mass))));
                 if (velocity.getX() > 0)
-                    velocity.setY(0);
+                    velocity.setX(0);
             } else {
-                velocity.setX(velocity.getX() - (xResistance.getX() * delta));
+                velocity.setX(velocity.getX() - (((velocity.getX() / resRatio) * (delta / mass))));
                 if (velocity.getX() < 0)
                     velocity.setX(0);
             }
@@ -36,11 +35,11 @@ public class AirResistance extends Force {
 
         if (velocity.getY() != 0) {
             if (velocity.getY() < 0) {
-                velocity.setY(velocity.getY() + (yResistance.getY() * delta));
+                velocity.setY(velocity.getY() - (((velocity.getY() / resRatio) * (delta / mass))));
                 if (velocity.getY() > 0)
                     velocity.setY(0);
             } else {
-                velocity.setY(velocity.getY() - (yResistance.getY() * delta));
+                velocity.setY(velocity.getY() - (((velocity.getY() / resRatio) * (delta / mass))));
                 if (velocity.getY() < 0)
                     velocity.setY(0);
             }

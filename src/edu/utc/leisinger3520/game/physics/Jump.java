@@ -8,4 +8,6 @@ public class Jump extends Force {
         force.setY(-power);
         immediate = true;
     }
+
+
 }

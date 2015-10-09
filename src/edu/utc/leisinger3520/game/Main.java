@@ -18,8 +18,8 @@ import java.util.LinkedList;
 
 public class Main {
     public static final int TARGET_FPS = 60;
-    public static final int SCR_WIDTH = 1920;
-    public static final int SCR_HEIGHT = 1080;
+    public static final int SCR_WIDTH = 1280;
+    public static final int SCR_HEIGHT = 720;
 
     public static int x = 0;
     public static int y = 300;
@@ -48,10 +48,10 @@ public class Main {
             e.printStackTrace();
         }
 
-        long nsNow = System.nanoTime();
-        long nsTotal = 0;
-        long frames = 0;
-        long elapsed;
+//        long nsNow = System.nanoTime();
+//        long nsTotal = 0;
+//        long frames = 0;
+//        long elapsed;
         while (!Display.isCloseRequested()) {
 
             // UPDATE DISPLAY
@@ -108,8 +108,8 @@ public class Main {
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glLoadIdentity();
         GL11.glOrtho(0, width, height, 0, 1, -1);
-        // GLU.gluPerspective(90f, 1.333f, 2f, -2f);
-        // GL11.glTranslated(0, 0, -500);
+//         GLU.gluPerspective(90f, 1.333f, 2f, -2f);
+//         GL11.glTranslated(0, 0, -500);
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
     }
 

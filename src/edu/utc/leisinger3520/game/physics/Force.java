@@ -1,7 +1,5 @@
 package edu.utc.leisinger3520.game.physics;
 
-import com.sun.deploy.config.VerboseDefaultConfig;
-import edu.utc.leisinger3520.game.logging.Log;
 import org.lwjgl.util.vector.Vector2f;
 
 /**
@@ -18,9 +16,9 @@ public abstract class Force {
 
     public void updateVelocity(Vector2f velocity, float mass, float delta, Vector2f maxVelocity) {
         if (immediate)
-            addForce(velocity);
+            addForce(velocity, mass);
         else
-            addForce(velocity, delta);
+            addForce(velocity, delta, mass);
 
         checkVelocity(velocity, maxVelocity);
     }
@@ -40,13 +38,13 @@ public abstract class Force {
             velocity.setY(-maxVelocity.getY());
     }
 
-    protected void addForce(Vector2f velocity) {
-        velocity.setY(velocity.getY() + force.getY());
-        velocity.setX(velocity.getX() + force.getX());
+    protected void addForce(Vector2f velocity, float mass) {
+        velocity.setY(velocity.getY() + (force.getY() * (1 / mass)));
+        velocity.setX(velocity.getX() + (force.getX() * (1 / mass)));
     }
 
-    protected void addForce(Vector2f velocity, float delta) {
-        velocity.setY(velocity.getY() + (force.getY() * delta));
-        velocity.setX(velocity.getX() + (force.getX() * delta));
+    protected void addForce(Vector2f velocity, float delta, float mass) {
+        velocity.setY(velocity.getY() + ((force.getY() * delta) * (1 / mass)));
+        velocity.setX(velocity.getX() + ((force.getX() * delta) * (1 / mass)));
     }
 }

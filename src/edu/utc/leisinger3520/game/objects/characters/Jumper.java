@@ -1,16 +1,15 @@
 package edu.utc.leisinger3520.game.objects.characters;
 
-import edu.utc.leisinger3520.game.logging.Log;
 import edu.utc.leisinger3520.game.objects.Entity;
 import edu.utc.leisinger3520.game.objects.ground.Platform;
 import edu.utc.leisinger3520.game.physics.AirResistance;
+import edu.utc.leisinger3520.game.physics.Friction;
 import edu.utc.leisinger3520.game.physics.Gravity;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Vector2f;
 
-import java.awt.*;
 import java.util.LinkedList;
 
 /**
@@ -21,7 +20,8 @@ public class Jumper extends Entity {
     private LinkedList<Integer> keysDown = new LinkedList<>();
     private final int jumpPower = 20;
     private float jumpSpeed = 0f;
-    private boolean canJump = false;
+    private boolean onGround = false;
+    private float lastY;
 
     public Jumper() {
 
@@ -29,7 +29,7 @@ public class Jumper extends Entity {
         hitbox.width = 100;
         hitbox.y = 100;
         hitbox.x = 100;
-        mass = 2f;
+        mass = 7f;
 
     }
 
@@ -37,8 +37,8 @@ public class Jumper extends Entity {
     public void update(float delta) {
         float x = (float) hitbox.getX();
         float y = (float) hitbox.getY();
+        lastY = y;
 
-        canJump = false;
         // fix on boundaries...
         if (x < 0) {
             x = 0;
@@ -55,41 +55,47 @@ public class Jumper extends Entity {
             velocity.setY(0);
         }
 
-        if (y > Display.getHeight() - hitbox.getHeight()) {
+        if (y >= Display.getHeight() - hitbox.getHeight()) {
             y = (float) (Display.getHeight() - hitbox.getHeight());
             velocity.setY(0);
         }
 
+        if (!onGround && y == (Display.getHeight() - hitbox.getHeight()))
+            onGround = true;
 
-        Gravity.getInstance().updateVelocity(velocity, mass, delta);
+        if (onGround)
+            Friction.getInstance().updateVelocity(velocity, mass, delta);
+//        else
+            Gravity.getInstance().updateVelocity(velocity, mass, delta);
+
         AirResistance.getInstance().updateVelocity(velocity, mass, delta);
 
         Vector2f extraForce = new Vector2f(0, 0);
 
-        if (Keyboard.isKeyDown(Keyboard.KEY_SPACE)) {
-            Vector2f.add(extraForce, new Vector2f(0f, -.01f), extraForce); // force going up
+        if (onGround && Keyboard.isKeyDown(Keyboard.KEY_SPACE)) {
+            extraForce.setY(-.1f);
         }
 
         // add some horizontal forces in response to key presses
         if (Keyboard.isKeyDown(Keyboard.KEY_LEFT)) {
-            Vector2f.add(extraForce, new Vector2f(-.001f, 0), extraForce);
+            extraForce.setX(extraForce.getX() - .01f);
         }
 
         if (Keyboard.isKeyDown(Keyboard.KEY_RIGHT)) {
-            Vector2f.add(extraForce, new Vector2f(.001f, 0), extraForce);
+            extraForce.setX(extraForce.getX() + .01f);
         }
-
 
         // apply force to velocity vector
         extraForce.scale(delta / mass);
         Vector2f.add(velocity, extraForce, velocity);
-//        Log.i(velocity);
 
         x += velocity.getX() * delta;
         y += velocity.getY() * delta;
 
-
         hitbox.setLocation((int) x, (int) y);
+
+        //Reset onGround
+        onGround = false;
     }
 
     @Override
@@ -108,15 +114,15 @@ public class Jumper extends Entity {
 
     @Override
     public synchronized void onCollision(Entity other) {
-//        if (other instanceof Platform) {
+        if (other instanceof Platform) {
             if (velocity.getY() > 0) {
-                Log.i("Going down");
-                Rectangle intersection = intersection(other);
-                if (intersection.getWidth() > intersection.getHeight()) {
+//                Log.i("Other Y: " + other.getY() + " | Last bottom: " + (lastY + getHeight()) + " | New bottom: " + (getY() + getHeight()));
+                if (other.getY() >= (lastY + getHeight()) && other.getY() < (getY() + getHeight())) {
                     velocity.setY(0);
-                    hitbox.y = (int) (other.hitbox.getY() - hitbox.height);
+                    hitbox.y = (int) (other.getY() - getHeight());
+                    onGround = true;
                 }
             }
-//        }
+        }
     }
 }
