@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_video_game_design" default="compile.module.video_game_design">
+  <dirname property="module.video_game_design.basedir" file="${ant.file.module_video_game_design}"/>
+  
+  <property name="module.jdk.home.video_game_design" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.video_game_design" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.video_game_design" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.video_game_design" value="-encoding windows-1252 -source 1.7 ${compiler.args}"/>
+  
+  <property name="video_game_design.output.dir" value="${module.video_game_design.basedir}/out/production/Video Game Design"/>
+  <property name="video_game_design.testoutput.dir" value="${module.video_game_design.basedir}/out/test/Video Game Design"/>
+  
+  <path id="video_game_design.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="video_game_design.module.production.classpath">
+    <path refid="${module.jdk.classpath.video_game_design}"/>
+    <path refid="library.lwjgl.classpath"/>
+  </path>
+  
+  <path id="video_game_design.runtime.production.module.classpath">
+    <pathelement location="${video_game_design.output.dir}"/>
+    <path refid="library.lwjgl.classpath"/>
+  </path>
+  
+  <path id="video_game_design.module.classpath">
+    <path refid="${module.jdk.classpath.video_game_design}"/>
+    <pathelement location="${video_game_design.output.dir}"/>
+    <path refid="library.lwjgl.classpath"/>
+  </path>
+  
+  <path id="video_game_design.runtime.module.classpath">
+    <pathelement location="${video_game_design.testoutput.dir}"/>
+    <pathelement location="${video_game_design.output.dir}"/>
+    <path refid="library.lwjgl.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.video_game_design">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.video_game_design">
+    <patternset refid="excluded.from.module.video_game_design"/>
+  </patternset>
+  
+  <path id="video_game_design.module.sourcepath">
+    <dirset dir="${module.video_game_design.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.video_game_design" depends="compile.module.video_game_design.production,compile.module.video_game_design.tests" description="Compile module Video Game Design"/>
+  
+  <target name="compile.module.video_game_design.production" depends="register.custom.compilers" description="Compile module Video Game Design; production classes">
+    <mkdir dir="${video_game_design.output.dir}"/>
+    <javac2 destdir="${video_game_design.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.video_game_design}/javac">
+      <compilerarg line="${compiler.args.video_game_design}"/>
+      <bootclasspath refid="video_game_design.module.bootclasspath"/>
+      <classpath refid="video_game_design.module.production.classpath"/>
+      <src refid="video_game_design.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.video_game_design"/>
+    </javac2>
+    
+    <copy todir="${video_game_design.output.dir}">
+      <fileset dir="${module.video_game_design.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.video_game_design.tests" depends="register.custom.compilers,compile.module.video_game_design.production" description="compile module Video Game Design; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.video_game_design" description="cleanup module">
+    <delete dir="${video_game_design.output.dir}"/>
+    <delete dir="${video_game_design.testoutput.dir}"/>
+  </target>
+</project>
