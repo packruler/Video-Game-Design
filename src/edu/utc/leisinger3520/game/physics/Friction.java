@@ -22,7 +22,6 @@ public class Friction extends Force {
     protected void addForce(Vector2f velocity, float delta, float mass) {
         if (velocity.getX() != 0f) {
             float adjustment = (((velocity.getX() / resRatio) * (delta / mass)));
-            Log.i("Vel: " + velocity.getX() + "Adj: " + adjustment);
             if (velocity.getX() < 0f) {
                 velocity.setX(velocity.getX()- adjustment);
                 if (velocity.getX() > -0.01f) {

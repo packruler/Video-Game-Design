@@ -18,10 +18,10 @@ public class PlatformTest extends Scene {
     public PlatformTest() {
         platforms.add(new Platform(50, 100, 500, 500));
         platforms.add(new Platform(50, 100, 700, 300));
-        platforms.add(new Platform(2*Display.getHeight(), Display.getWidth(), 0, -2*Display.getHeight()));
-        platforms.add(new Platform(Display.getHeight(), Display.getWidth(), 0, Display.getHeight()));
-        platforms.add(new Platform(Display.getHeight() * 4, Display.getWidth() * 2, Display.getWidth() * -2, Display.getHeight() * -2));
-        platforms.add(new Platform(Display.getHeight() * 4, Display.getWidth() * 2, Display.getWidth(), Display.getHeight() * -2));
+        platforms.add(new Platform(2 * Display.getHeight(), Display.getWidth(), 0, -2 * Display.getHeight()));
+        platforms.add(new Platform(Display.getHeight() * 2, Display.getWidth(), 0, Display.getHeight()));
+        platforms.add(new Platform(Display.getHeight() * 5, Display.getWidth() * 2, Display.getWidth() * -2, Display.getHeight() * -2));
+        platforms.add(new Platform(Display.getHeight() * 5, Display.getWidth() * 2, Display.getWidth(), Display.getHeight() * -2));
 
     }
 

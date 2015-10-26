@@ -18,19 +18,16 @@ import java.util.LinkedList;
 public class Jumper extends Entity {
 
     private LinkedList<Integer> keysDown = new LinkedList<>();
-    private final int jumpPower = 20;
-    private float jumpSpeed = 0f;
     private boolean onGround = false;
     private float lastY;
 
     public Jumper() {
 
-        hitbox.height = 200;
-        hitbox.width = 100;
+        hitbox.height = 100;
+        hitbox.width = 50;
         hitbox.y = 100;
         hitbox.x = 100;
         mass = 7f;
-
     }
 
     @Override
@@ -66,14 +63,14 @@ public class Jumper extends Entity {
         if (onGround)
             Friction.getInstance().updateVelocity(velocity, mass, delta);
 //        else
-            Gravity.getInstance().updateVelocity(velocity, mass, delta);
+        Gravity.getInstance().updateVelocity(velocity, mass, delta);
 
         AirResistance.getInstance().updateVelocity(velocity, mass, delta);
 
         Vector2f extraForce = new Vector2f(0, 0);
 
         if (onGround && Keyboard.isKeyDown(Keyboard.KEY_SPACE)) {
-            extraForce.setY(-.1f);
+            extraForce.setY(-.35f);
         }
 
         // add some horizontal forces in response to key presses

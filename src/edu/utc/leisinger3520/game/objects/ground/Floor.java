@@ -1,6 +1,6 @@
 package edu.utc.leisinger3520.game.objects.ground;
 
-import edu.utc.leisinger3520.game.Main;
+import edu.utc.leisinger3520.game.MainDeprecated;
 import edu.utc.leisinger3520.game.objects.Entity;
 import org.lwjgl.opengl.GL11;
 
@@ -10,10 +10,10 @@ import org.lwjgl.opengl.GL11;
 public class Floor extends Entity {
 
     public Floor() {
-        width = Main.SCR_WIDTH;
+        width = MainDeprecated.SCR_WIDTH;
         x = 0;
         height = 100;
-        y = Main.SCR_HEIGHT - height;
+        y = MainDeprecated.SCR_HEIGHT - height;
     }
 
     @Override

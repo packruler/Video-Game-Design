@@ -6,7 +6,7 @@ import org.lwjgl.util.vector.Vector2f;
  * Created by Ethan Leisinger on 9/16/2015.
  */
 public class Gravity extends Force {
-    public static float GRAVITY = .001f;
+    public static float GRAVITY = .01f;
     private static Gravity INSTANCE = new Gravity();
 
     public static Gravity getInstance() {

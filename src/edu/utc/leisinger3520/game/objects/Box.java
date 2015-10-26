@@ -1,6 +1,6 @@
 package edu.utc.leisinger3520.game.objects;
 
-import edu.utc.leisinger3520.game.Main;
+import edu.utc.leisinger3520.game.MainDeprecated;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
@@ -61,11 +61,11 @@ public class Box extends Entity {
     }
 
     public boolean moveRight(int distance) {
-        if ((x + width) >= Main.SCR_WIDTH)
+        if ((x + width) >= MainDeprecated.SCR_WIDTH)
             return false;
 
-        if ((x + width) - distance >= Main.SCR_WIDTH)
-            x = Main.SCR_WIDTH - width;
+        if ((x + width) - distance >= MainDeprecated.SCR_WIDTH)
+            x = MainDeprecated.SCR_WIDTH - width;
         else
             x += distance;
         return true;
@@ -92,8 +92,8 @@ public class Box extends Entity {
     }
 
     public boolean moveDown(int distance) {
-        if ((y + height) - distance >= Main.SCR_HEIGHT) {
-            y = Main.SCR_HEIGHT - height;
+        if ((y + height) - distance >= MainDeprecated.SCR_HEIGHT) {
+            y = MainDeprecated.SCR_HEIGHT - height;
             return false;
         } else
             y += distance;
