@@ -43,7 +43,7 @@ public class Main {
                 scene = new GridGame();
                 lastReset = now;
                 long finish = System.nanoTime();
-                Log.i("Reset took: " + (finish - startReset) / 100000f + " ms");
+                Log.i("Reset took: " + (finish - startReset) / 1000000f + " ms");
             }
 
             // DRAW OBJECTS
