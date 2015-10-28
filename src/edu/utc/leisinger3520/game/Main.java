@@ -1,10 +1,11 @@
 package edu.utc.leisinger3520.game;
 
 import edu.utc.leisinger3520.game.gridStuff.GridGame;
+import edu.utc.leisinger3520.game.logging.Log;
 import edu.utc.leisinger3520.game.objects.Entity;
-import edu.utc.leisinger3520.game.scenes.PlatformTest;
 import edu.utc.leisinger3520.game.scenes.Scene;
 import org.lwjgl.LWJGLException;
+import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import org.lwjgl.opengl.GL11;
@@ -27,6 +28,8 @@ public class Main {
 
         scene = new GridGame();
 
+        long lastReset = System.currentTimeMillis();
+
         while (!Display.isCloseRequested()) {
 
             // UPDATE DISPLAY
@@ -34,6 +37,14 @@ public class Main {
             Display.sync(TARGET_FPS);
             delta = System.currentTimeMillis() - now;
             now = System.currentTimeMillis();
+
+            if (Keyboard.isKeyDown(Keyboard.KEY_SPACE) && now - lastReset > 500) {
+                long startReset = System.nanoTime();
+                scene = new GridGame();
+                lastReset = now;
+                long finish = System.nanoTime();
+                Log.i("Reset took: " + (finish - startReset) / 100000f + " ms");
+            }
 
             // DRAW OBJECTS
             scene.drawFrame(delta);

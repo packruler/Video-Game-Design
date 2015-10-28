@@ -1,7 +1,6 @@
 package edu.utc.leisinger3520.game.gridStuff;
 
 import edu.utc.leisinger3520.game.display.Color;
-import edu.utc.leisinger3520.game.logging.Log;
 import edu.utc.leisinger3520.game.objects.Entity;
 import org.lwjgl.opengl.GL11;
 
@@ -20,7 +19,8 @@ public class GridCell extends Entity {
     private boolean found = false;
     private int row, col, fromRow, fromCol;
     private final GridGame game;
-    private static final Color onPath = new Color(.5, .5, 1);
+    private static final Color onPath = new Color(0, 0, 1, .75);
+    private static final Color visited = new Color(0, 0, 1, .25);
 
     public GridCell(int col, int row, GridGame game, int status) {
         hitbox.setBounds(col * game.cellWidth, row * game.cellHeight, game.cellWidth, game.cellHeight);
@@ -68,9 +68,9 @@ public class GridCell extends Entity {
 //        Log.i("Row: " + row + " Col: " + col + " Dist: " + distanceFromPlayer);
 //        Log.i("Current distance: " + distanceFromPlayer + "New distance: " + distance);
         if (status == TARGET) {
-            Log.i("TARGET FOUND From: " + fromCol + "," + fromRow + " Dist: " + distance);
+//            Log.i("TARGET FOUND From: " + fromCol + "," + fromRow + " Dist: " + distance);
             if (distanceFromPlayer == 0 || distanceFromPlayer > distance) {
-                Log.i("Update path");
+//                Log.i("Update path");
                 this.fromCol = fromCol;
                 this.fromRow = fromRow;
                 distanceFromPlayer = distance;
@@ -78,6 +78,9 @@ public class GridCell extends Entity {
                 reversePath();
             }
         } else if (distanceFromPlayer == 0 || distanceFromPlayer > distance) {
+            if (status == EMPTY)
+                fill = visited;
+
             distanceFromPlayer = distance;
             this.fromCol = fromCol;
             this.fromRow = fromRow;
