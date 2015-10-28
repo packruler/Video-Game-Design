@@ -7,7 +7,7 @@ import org.lwjgl.opengl.GL11;
 /**
  * Created by Ethan Leisinger on 10/21/2015.
  */
-public class GridCell extends Entity {
+public class GridCell extends Entity implements Comparable<GridCell> {
     private Color outline = new Color(0, 0, 0);
     private Color fill = new Color();
     private int status;
@@ -19,8 +19,12 @@ public class GridCell extends Entity {
     private boolean found = false;
     private int row, col, fromRow, fromCol;
     private final GridGame game;
-    private static final Color onPath = new Color(0, 0, 1, .75);
-    private static final Color visited = new Color(0, 0, 1, .25);
+    private static final Color ON_PATH = new Color(0, 0, 1, .75);
+    private static final Color VISITED = new Color(0, 0, 1, .25);
+    private static final Color UNTOUCHED = new Color(1, 1, 1);
+    private double cost = 1;
+    private double pathCost = 0;
+    private GridCell fromCell = null;
 
     public GridCell(int col, int row, GridGame game, int status) {
         hitbox.setBounds(col * game.cellWidth, row * game.cellHeight, game.cellWidth, game.cellHeight);
@@ -48,6 +52,84 @@ public class GridCell extends Entity {
         }
     }
 
+    public int getRow() {
+        return row;
+    }
+
+    public int getColumn() {
+        return col;
+    }
+
+    public boolean canVisit(GridCell other) {
+        if (other.getStatus() == EMPTY)
+            return true;
+
+        return false;
+    }
+
+    public boolean setVisited(GridCell from) {
+        boolean hasBeenVisited = fromCell != null;
+        if (status == EMPTY)
+            fill = VISITED;
+        if ((getPathCost() > from.getPathCost() || !hasBeenVisited || getPathCost() == 0)
+                && from != fromCell
+                && (from.getPreviousCell() == null || !from.getPreviousCell().equals(this))
+                && (fromCell == null || fromCell.getStatus() != PLAYER)) {
+            fromCell = from;
+            pathCost = from.getPathCost() + cost;
+        }
+        return hasBeenVisited;
+    }
+
+    public double getPathCost() {
+        return pathCost;
+    }
+
+    public void setPathCost(double pathCost) {
+        this.pathCost = pathCost;
+    }
+
+    public GridCell getPreviousCell() {
+        return fromCell;
+    }
+
+    public void reset() {
+        pathCost = 0;
+        fromCell = null;
+
+        if (status == EMPTY)
+            fill = UNTOUCHED;
+    }
+
+    public void setPartOfPath() {
+        fill = ON_PATH;
+    }
+
+    @Override
+    public int compareTo(GridCell o) {
+        if (o.getColumn() != getColumn())
+            return o.getColumn() - getColumn();
+
+        if (o.getRow() != getRow())
+            return o.getRow() - getRow();
+
+        return 0;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj != null
+                && obj instanceof GridCell
+                && ((GridCell) obj).getColumn() == getColumn()
+                && ((GridCell) obj).getRow() == getRow())
+            return true;
+
+        return false;
+    }
+
+    /**
+     * Initializes checkNeighbors method
+     */
     public void findTarget() {
         if (row - 1 >= 0)
             checkNext(col, row - 1);
@@ -79,7 +161,7 @@ public class GridCell extends Entity {
             }
         } else if (distanceFromPlayer == 0 || distanceFromPlayer > distance) {
             if (status == EMPTY)
-                fill = visited;
+                fill = VISITED;
 
             distanceFromPlayer = distance;
             this.fromCol = fromCol;
@@ -146,7 +228,7 @@ public class GridCell extends Entity {
         GL11.glBegin(GL11.GL_QUADS);
 
         if (game.path.contains(this))
-            onPath.use();
+            ON_PATH.use();
         else
             fill.use();
 

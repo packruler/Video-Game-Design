@@ -1,10 +1,14 @@
 package edu.utc.leisinger3520.game.gridStuff;
 
+import edu.utc.leisinger3520.game.logging.Log;
 import edu.utc.leisinger3520.game.scenes.Scene;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Created by Ethan Leisinger on 10/21/2015.
@@ -45,7 +49,10 @@ public class GridGame extends Scene {
             }
         }
 
-        player.findTarget();
+//        player.findTarget();
+        for (GridCell cell : findPath(player, target)) {
+            cell.setPartOfPath();
+        }
     }
 
     @Override
@@ -59,5 +66,56 @@ public class GridGame extends Scene {
 
 
         return false;
+    }
+
+    public Set<GridCell> getNeighbors(GridCell cell) {
+        Set<GridCell> set = new TreeSet<>();
+
+        if (cell.getColumn() > 0
+                && grid[cell.getColumn() - 1][cell.getRow()].getStatus() != GridCell.OBSTACLE)
+            set.add(grid[cell.getColumn() - 1][cell.getRow()]);
+
+        if (cell.getRow() > 0
+                && grid[cell.getColumn()][cell.getRow() - 1].getStatus() != GridCell.OBSTACLE)
+            set.add(grid[cell.getColumn()][cell.getRow() - 1]);
+
+        if (cell.getColumn() + 1 < colCount
+                && grid[cell.getColumn() + 1][cell.getRow()].getStatus() != GridCell.OBSTACLE)
+            set.add(grid[cell.getColumn() + 1][cell.getRow()]);
+
+        if (cell.getRow() + 1 < rowCount
+                && grid[cell.getColumn()][cell.getRow() + 1].getStatus() != GridCell.OBSTACLE)
+            set.add(grid[cell.getColumn()][cell.getRow() + 1]);
+
+        return set;
+    }
+
+    public List<GridCell> findPath(GridCell from, GridCell to) {
+        TreeSet<GridCell> needToVisit = new TreeSet<>();
+        from.setPathCost(0);
+
+        needToVisit.addAll(getNeighbors(from));
+
+        GridCell current;
+        while (!needToVisit.isEmpty()) {
+            current = needToVisit.pollFirst();
+            if (!current.equals(to) && !current.equals(from))
+                for (GridCell cell : getNeighbors(current)) {
+                    if (!cell.setVisited(current))
+                        needToVisit.add(cell);
+                }
+        }
+
+        LinkedList<GridCell> path = new LinkedList<>();
+
+        if (to.getPreviousCell() != null) {
+            current = to;
+            while (current.getPreviousCell() != null) {
+                current = current.getPreviousCell();
+                path.add(current);
+            }
+        }
+
+        return path;
     }
 }
