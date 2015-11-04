@@ -3,6 +3,7 @@ package edu.utc.leisinger3520.game;
 import edu.utc.leisinger3520.game.gridStuff.GridGame;
 import edu.utc.leisinger3520.game.logging.Log;
 import edu.utc.leisinger3520.game.objects.Entity;
+import edu.utc.leisinger3520.game.scenes.PolygonDrawTest;
 import edu.utc.leisinger3520.game.scenes.Scene;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Keyboard;
@@ -15,8 +16,8 @@ import org.lwjgl.opengl.GL11;
  */
 public class Main {
     public static final int TARGET_FPS = 60;
-    public static final int SCR_WIDTH = 1280;
-    public static final int SCR_HEIGHT = 720;
+    public static final int SCR_WIDTH = 1920;
+    public static final int SCR_HEIGHT = 1080;
 
     public static Scene scene;
 
@@ -26,7 +27,7 @@ public class Main {
         long now = System.currentTimeMillis();
         long delta;
 
-        scene = new GridGame();
+        scene = new PolygonDrawTest();
 
         long lastReset = System.currentTimeMillis();
 
