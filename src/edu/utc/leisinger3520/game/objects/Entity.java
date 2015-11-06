@@ -96,6 +96,10 @@ public abstract class Entity {
         active = setTo;
     }
 
+    public float getMass() {
+        return mass;
+    }
+
     public double getX() {
         return hitbox.getX();
     }
@@ -118,5 +122,17 @@ public abstract class Entity {
 
     public double getHeight() {
         return hitbox.getHeight();
+    }
+
+    public double getCenterX() {
+        return getX() + getRadius();
+    }
+
+    public double getCenterY() {
+        return getY() + getRadius();
+    }
+
+    public int getRadius() {
+        return (int) getWidth() / 2;
     }
 }

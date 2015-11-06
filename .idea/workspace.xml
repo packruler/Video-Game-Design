@@ -2,19 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6b63d5c-139c-4e47-a7a6-23dcb366723d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/Hitbox.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/Player.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/PlayerLeft.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/PlayerRight.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/scenes/HockeyGame.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/scenes/PolygonDrawTest.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/Puck.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/ground/Goal.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/Main.java" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/gridStuff/GridCell.java" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/gridStuff/GridCell.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/Circle.java" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/Circle.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/Entity.java" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/Entity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/MouseFollower.java" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/MouseFollower.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/ControllableCircle.java" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/ControllableCircle.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/Player.java" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/PlayerLeft.java" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/PlayerLeft.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/PlayerRight.java" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/PlayerRight.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/scenes/HockeyGame.java" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/scenes/HockeyGame.java" />
     </list>
     <ignored path="Video Game Design.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,7 +26,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="" />
+    <option name="PATCH_PATH" value="C:\Users\packr\Documents\GitHub\Video-Game-Design" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -41,49 +38,44 @@
         <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/Entity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
               <folding>
-                <element signature="e#2532#2533#0" expanded="true" />
-                <element signature="e#2568#2569#0" expanded="true" />
-                <element signature="e#2599#2600#0" expanded="true" />
-                <element signature="e#2629#2630#0" expanded="true" />
-                <element signature="e#2657#2658#0" expanded="true" />
-                <element signature="e#2693#2694#0" expanded="true" />
-                <element signature="e#2724#2725#0" expanded="true" />
-                <element signature="e#2754#2755#0" expanded="true" />
-                <element signature="e#2859#2860#0" expanded="true" />
-                <element signature="e#2900#2901#0" expanded="true" />
+                <element signature="e#2534#2535#0" expanded="true" />
+                <element signature="e#2561#2562#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Hitbox.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/Hitbox.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.620689">
-              <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
-              <folding>
-                <element signature="e#232#233#0" expanded="true" />
-                <element signature="e#274#275#0" expanded="true" />
-                <element signature="e#305#306#0" expanded="true" />
-                <element signature="e#354#355#0" expanded="true" />
-                <element signature="e#386#387#0" expanded="true" />
-                <element signature="e#435#436#0" expanded="true" />
-                <element signature="e#475#476#0" expanded="true" />
-                <element signature="e#509#510#0" expanded="true" />
-                <element signature="e#551#552#0" expanded="true" />
-                <element signature="e#587#588#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HockeyGame.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HockeyGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/scenes/HockeyGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8045977">
-              <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="63" column="27" selection-start-line="63" selection-start-column="27" selection-end-line="63" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Puck.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/Puck.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.72085387">
+              <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Goal.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/ground/Goal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,24 +87,8 @@
         <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/Player.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-              <folding>
-                <element signature="e#260#261#0" expanded="true" />
-                <element signature="e#295#296#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayerLeft.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/PlayerLeft.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
-              <folding>
-                <element signature="e#197#198#0" expanded="true" />
-                <element signature="e#251#252#0" expanded="true" />
-              </folding>
+              <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -121,20 +97,7 @@
         <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/PlayerRight.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="66" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
-              <folding>
-                <element signature="e#199#200#0" expanded="true" />
-                <element signature="e#274#275#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GridCell.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/gridStuff/GridCell.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="218" column="23" selection-start-line="218" selection-start-column="23" selection-end-line="218" selection-end-column="23" />
+              <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -144,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/Circle.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="53" column="41" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
+              <caret line="75" column="23" selection-start-line="47" selection-start-column="37" selection-end-line="75" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -170,7 +133,7 @@
         <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -197,8 +160,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/Objects/PictureTest.java" />
-        <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/Objects/MouseFollower.java" />
         <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/Objects/ground.java" />
         <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/Objects/ground/Floor.java" />
         <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/Objects/AirplaneScrolling.java" />
@@ -239,15 +200,17 @@
         <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/gridStuff/GridCell.java" />
         <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/Hitbox.java" />
         <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/ControllableCircle.java" />
-        <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/Circle.java" />
-        <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/Main.java" />
         <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/scenes/PolygonDrawTest.java" />
-        <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/scenes/HockeyGame.java" />
         <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/Mallet.java" />
+        <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/PlayerLeft.java" />
         <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/Entity.java" />
         <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/Player.java" />
-        <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/PlayerLeft.java" />
+        <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/Main.java" />
         <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/PlayerRight.java" />
+        <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/Circle.java" />
+        <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/ground/Goal.java" />
+        <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/scenes/HockeyGame.java" />
+        <option value="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/Puck.java" />
       </list>
     </option>
   </component>
@@ -294,7 +257,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -508,11 +471,11 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad/bin/git.exe" />
+    <property name="last_opened_file_path" value="D:/Downloads/src" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -1039,7 +1002,8 @@
       <workItem from="1446487840783" duration="15000" />
       <workItem from="1446487882911" duration="3290000" />
       <workItem from="1446657722878" duration="4444000" />
-      <workItem from="1446827438267" duration="10581000" />
+      <workItem from="1446827438267" duration="15436000" />
+      <workItem from="1446842911700" duration="6831000" />
     </task>
     <task id="LOCAL-00001" summary="So many cells">
       <created>1446044493473</created>
@@ -1065,11 +1029,17 @@
       <option name="project" value="LOCAL" />
       <updated>1446830015276</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Begin hockey game">
+      <created>1446838043087</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1446838043087</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114924000" />
+    <option name="totallyTimeSpent" value="126610000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1082,7 +1052,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875264" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3266385" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3266385" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.246875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1116,7 +1086,8 @@
     <MESSAGE value="So many cells" />
     <MESSAGE value="Trying out circle drawing" />
     <MESSAGE value="Use hitbox to store x,y,width, height" />
-    <option name="LAST_COMMIT_MESSAGE" value="Use hitbox to store x,y,width, height" />
+    <MESSAGE value="Begin hockey game" />
+    <option name="LAST_COMMIT_MESSAGE" value="Begin hockey game" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1139,16 +1110,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
-            <element signature="e#2532#2533#0" expanded="true" />
-            <element signature="e#2568#2569#0" expanded="true" />
-            <element signature="e#2599#2600#0" expanded="true" />
-            <element signature="e#2629#2630#0" expanded="true" />
-            <element signature="e#2657#2658#0" expanded="true" />
-            <element signature="e#2693#2694#0" expanded="true" />
-            <element signature="e#2724#2725#0" expanded="true" />
-            <element signature="e#2754#2755#0" expanded="true" />
-            <element signature="e#2859#2860#0" expanded="true" />
-            <element signature="e#2900#2901#0" expanded="true" />
+            <element signature="e#2534#2535#0" expanded="true" />
+            <element signature="e#2561#2562#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1165,16 +1128,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
-            <element signature="e#2532#2533#0" expanded="true" />
-            <element signature="e#2568#2569#0" expanded="true" />
-            <element signature="e#2599#2600#0" expanded="true" />
-            <element signature="e#2629#2630#0" expanded="true" />
-            <element signature="e#2657#2658#0" expanded="true" />
-            <element signature="e#2693#2694#0" expanded="true" />
-            <element signature="e#2724#2725#0" expanded="true" />
-            <element signature="e#2754#2755#0" expanded="true" />
-            <element signature="e#2859#2860#0" expanded="true" />
-            <element signature="e#2900#2901#0" expanded="true" />
+            <element signature="e#2534#2535#0" expanded="true" />
+            <element signature="e#2561#2562#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1191,16 +1146,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
-            <element signature="e#2532#2533#0" expanded="true" />
-            <element signature="e#2568#2569#0" expanded="true" />
-            <element signature="e#2599#2600#0" expanded="true" />
-            <element signature="e#2629#2630#0" expanded="true" />
-            <element signature="e#2657#2658#0" expanded="true" />
-            <element signature="e#2693#2694#0" expanded="true" />
-            <element signature="e#2724#2725#0" expanded="true" />
-            <element signature="e#2754#2755#0" expanded="true" />
-            <element signature="e#2859#2860#0" expanded="true" />
-            <element signature="e#2900#2901#0" expanded="true" />
+            <element signature="e#2534#2535#0" expanded="true" />
+            <element signature="e#2561#2562#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1217,16 +1164,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
-            <element signature="e#2532#2533#0" expanded="true" />
-            <element signature="e#2568#2569#0" expanded="true" />
-            <element signature="e#2599#2600#0" expanded="true" />
-            <element signature="e#2629#2630#0" expanded="true" />
-            <element signature="e#2657#2658#0" expanded="true" />
-            <element signature="e#2693#2694#0" expanded="true" />
-            <element signature="e#2724#2725#0" expanded="true" />
-            <element signature="e#2754#2755#0" expanded="true" />
-            <element signature="e#2859#2860#0" expanded="true" />
-            <element signature="e#2900#2901#0" expanded="true" />
+            <element signature="e#2534#2535#0" expanded="true" />
+            <element signature="e#2561#2562#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1383,12 +1322,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
           <folding>
-            <element signature="e#690#691#0" expanded="true" />
-            <element signature="e#711#712#0" expanded="true" />
-            <element signature="e#745#746#0" expanded="true" />
-            <element signature="e#766#767#0" expanded="true" />
-            <element signature="e#800#801#0" expanded="true" />
-            <element signature="e#821#822#0" expanded="true" />
+            <element signature="e#690#691#0" expanded="false" />
+            <element signature="e#711#712#0" expanded="false" />
+            <element signature="e#745#746#0" expanded="false" />
+            <element signature="e#766#767#0" expanded="false" />
+            <element signature="e#800#801#0" expanded="false" />
+            <element signature="e#821#822#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1430,8 +1369,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="276" column="18" selection-start-line="276" selection-start-column="18" selection-end-line="276" selection-end-column="18" />
           <folding>
-            <element signature="e#9513#9514#0" expanded="true" />
-            <element signature="e#9537#9538#0" expanded="true" />
+            <element signature="e#9513#9514#0" expanded="false" />
+            <element signature="e#9537#9538#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1471,13 +1410,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/Circle.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/scenes/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13957307">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/PlayerLeft.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="41" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1493,18 +1438,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/scenes/Scene.java">
+    <entry file="jar://$PROJECT_DIR$/../../lwjgl-2.9.3/jar/lwjgl_util.jar!/org/lwjgl/util/vector/Vector.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13957307">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-          <folding />
+        <state vertical-scroll-proportion="-12.592592">
+          <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+          <folding>
+            <element signature="e#377#378#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/PlayerRight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../lwjgl-2.9.3/jar/lwjgl_util.jar!/org/lwjgl/util/vector/Vector2f.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.5185184">
+          <caret line="66" column="20" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1512,59 +1484,48 @@
     <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/Entity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
           <folding>
-            <element signature="e#2532#2533#0" expanded="true" />
-            <element signature="e#2568#2569#0" expanded="true" />
-            <element signature="e#2599#2600#0" expanded="true" />
-            <element signature="e#2629#2630#0" expanded="true" />
-            <element signature="e#2657#2658#0" expanded="true" />
-            <element signature="e#2693#2694#0" expanded="true" />
-            <element signature="e#2724#2725#0" expanded="true" />
-            <element signature="e#2754#2755#0" expanded="true" />
-            <element signature="e#2859#2860#0" expanded="true" />
-            <element signature="e#2900#2901#0" expanded="true" />
+            <element signature="e#2534#2535#0" expanded="true" />
+            <element signature="e#2561#2562#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/Player.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/Circle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+          <caret line="75" column="23" selection-start-line="47" selection-start-column="37" selection-end-line="75" selection-end-column="23" />
           <folding>
-            <element signature="e#260#261#0" expanded="true" />
-            <element signature="e#295#296#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/PlayerLeft.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/ground/Goal.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
           <folding>
-            <element signature="e#197#198#0" expanded="true" />
-            <element signature="e#251#252#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/PlayerRight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="66" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
-          <folding>
-            <element signature="e#199#200#0" expanded="true" />
-            <element signature="e#274#275#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/scenes/HockeyGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8045977">
-          <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="63" column="27" selection-start-line="63" selection-start-column="27" selection-end-line="63" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/Puck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72085387">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

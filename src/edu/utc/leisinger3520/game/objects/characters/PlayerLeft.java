@@ -8,5 +8,6 @@ import org.lwjgl.opengl.Display;
 public class PlayerLeft extends Player {
     public PlayerLeft() {
         super(RADIUS, Display.getHeight() / 2);
+        fill.setG(1);
     }
 }

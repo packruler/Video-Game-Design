@@ -12,7 +12,7 @@ import org.lwjgl.opengl.GL11;
  * Created by Ethan Leisinger on 10/21/2015.
  */
 public class Main {
-    public static final int TARGET_FPS = 30;
+    public static final int TARGET_FPS = 60;
     public static final int SCR_WIDTH = 1280;
     public static final int SCR_HEIGHT = 720;
 
