@@ -36,9 +36,6 @@ public class MainDeprecated {
         long delta;
         long avg;
 
-//        scene=MainGame.getInstance();
-//        MainGame.getInstance().addEntity(new MouseFollower(200, "./res/Pacman.png"));
-//        MainGame.getInstance().addEntity(new AirplaneScrolling(200, "./res/airplane.png"));
 
         scene = new PlatformTest();
 

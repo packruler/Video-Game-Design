@@ -16,8 +16,8 @@ import org.lwjgl.opengl.GL11;
  */
 public class Main {
     public static final int TARGET_FPS = 60;
-    public static final int SCR_WIDTH = 1920;
-    public static final int SCR_HEIGHT = 1080;
+    public static final int SCR_WIDTH = 1280;
+    public static final int SCR_HEIGHT = 720;
 
     public static Scene scene;
 

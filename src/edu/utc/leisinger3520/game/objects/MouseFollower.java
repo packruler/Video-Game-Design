@@ -7,7 +7,6 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.Rectangle;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
@@ -16,7 +15,6 @@ import org.newdawn.slick.util.ResourceLoader;
  * Created by Ethan Leisinger (aka Packruler) on 8/26/2015.
  */
 public class MouseFollower extends Entity {
-    private Rectangle box;
     private Texture texture;
     private float wr;
     private float hr;
@@ -26,17 +24,12 @@ public class MouseFollower extends Entity {
     private long keyPressDelay = 500;
 
     public MouseFollower(int width, String pngPath) {
-        super();
         try {
-            x = 300;
-            y = 300;
             texture = TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream(pngPath));
             wr = (1.0f) * texture.getImageWidth() / texture.getImageHeight();
             hr = (1.0f) * texture.getImageHeight() / texture.getImageWidth();
-            this.width = width;
-            this.height = (int) (width * hr);
+            hitbox.setRect(300, 300, width, width * hr);
 
-            init();
         } catch (java.io.IOException e) {
             e.printStackTrace();
             Log.e("Cannot open resource " + pngPath);
@@ -46,11 +39,11 @@ public class MouseFollower extends Entity {
     @Override
     public void update(float delta) {
         if (Mouse.isButtonDown(0)) {
-            int mx = Mouse.getX() - (width / 2);
-            int my = Display.getHeight() - Mouse.getY() - (height / 2);
+            int mx = (int) (Mouse.getX() - (getWidth() / 2));
+            int my = (int) (Display.getHeight() - Mouse.getY() - (getHeight() / 2));
 
-            x += (mx - x) * .01 * delta;
-            y += (my - y) * .01 * delta;
+            setX((int) ((mx - getX()) * .01 * delta));
+            setY((int) ((my - getY()) * .01 * delta));
         }
 
         if (Keyboard.isKeyDown(Keyboard.KEY_LEFT))
@@ -67,13 +60,13 @@ public class MouseFollower extends Entity {
         GL11.glBegin(GL11.GL_QUADS);
 
         GL11.glTexCoord2f(0, 0);
-        GL11.glVertex2f(x, y);
+        GL11.glVertex2d(getX(), getY());
         GL11.glTexCoord2d(1, 0);
-        GL11.glVertex2f(x + width, y);
+        GL11.glVertex2d(getX() + getWidth(), getY());
         GL11.glTexCoord2f(1, 1);
-        GL11.glVertex2f(x + width, y + width);
+        GL11.glVertex2d(getX() + getWidth(), getY() + getHeight());
         GL11.glTexCoord2f(0, 1);
-        GL11.glVertex2f(x, y + width);
+        GL11.glVertex2d(getX(), getY() + getHeight());
 
         GL11.glEnd();
         GL11.glBindTexture(GL11.GL_TEXTURE_2D, 0);
@@ -83,13 +76,13 @@ public class MouseFollower extends Entity {
         switch (key) {
             case Keyboard.KEY_LEFT:
                 if (System.currentTimeMillis() - lastLeftPress > keyPressDelay) {
-                    MainGame.getInstance().addProjectile(new Projectile(x - Projectile.WIDTH, y + (height / 2) - (Projectile.WIDTH / 2), -Projectile.VELOCITY, 0));
+                    MainGame.getInstance().addProjectile(new Projectile((int) getX() - Projectile.WIDTH, (int) (getY() + (getHeight() / 2) - (Projectile.WIDTH / 2)), -Projectile.VELOCITY, 0));
                     lastLeftPress = System.currentTimeMillis();
                 }
                 break;
             case Keyboard.KEY_RIGHT:
                 if (System.currentTimeMillis() - lastRightPress > keyPressDelay) {
-                    MainGame.getInstance().addProjectile(new Projectile(x + width, y + (height / 2) - (Projectile.WIDTH / 2), Projectile.VELOCITY, 0));
+                    MainGame.getInstance().addProjectile(new Projectile((int) (getX() + getWidth()), (int) (getY() + (getHeight() / 2) - (Projectile.WIDTH / 2)), Projectile.VELOCITY, 0));
                     lastRightPress = System.currentTimeMillis();
                 }
                 break;

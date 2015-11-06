@@ -41,7 +41,7 @@ public class PlatformTest extends Scene {
         jumper.update(delta);
 
         //            platform.update(delta);
-        platforms.stream().filter(jumper::intersects).forEach(jumper::onCollision);
+        platforms.stream().filter(jumper::isCollision).forEach(jumper::onCollision);
 
         GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 

@@ -10,15 +10,9 @@ public class Platform extends Entity {
     private float r, g, b;
 
     public Platform(int h, int w, int x, int y, float r, float g, float b) {
-        height = h;
-        width = w;
-        this.x = x;
-        this.y = y;
+        super(x, y, h, w);
 
-        this.r = r;
-        this.g = g;
-        this.b = b;
-        init();
+        fill.set(r, g, b);
     }
 
     public Platform(int h, int w, int x, int y) {
@@ -30,10 +24,10 @@ public class Platform extends Entity {
         GL11.glColor3f(r, g, b);
 
         GL11.glBegin(GL11.GL_QUADS);
-        GL11.glVertex2i(x, y);
-        GL11.glVertex2i(x + width, y);
-        GL11.glVertex2i(x + width, y + height);
-        GL11.glVertex2i(x, y + height);
+        GL11.glVertex2d(getX(), getY());
+        GL11.glVertex2d(getX() + getWidth(), getY());
+        GL11.glVertex2d(getX() + getWidth(), getY() + getHeight());
+        GL11.glVertex2d(getX(), getY() + getHeight());
 
         GL11.glEnd();
     }

@@ -15,23 +15,36 @@ public class Color {
         alpha = 1;
     }
 
-    public Color(double r, double g, double b) {
-        this.r = r;
-        this.g = g;
-        this.b = b;
+    public Color(double R, double G, double B) {
+        r = R;
+        g = G;
+        b = B;
         alpha = 1;
     }
 
-    public Color(double r, double g, double b, double alpha) {
-        this(r, g, b);
+    public Color(double R, double G, double B, double alpha) {
+        this(R, G, B);
         this.alpha = alpha;
     }
 
-    public void set(double r, double g, double b) {
-        this.r = r;
-        this.g = g;
-        this.b = b;
+    public void set(double R, double G, double B) {
+        r = R;
+        g = G;
+        b = B;
     }
+
+    public void setR(double R) {
+        r = R;
+    }
+
+    public void setG(double G) {
+        g = G;
+    }
+
+    public void setB(double B) {
+        b = B;
+    }
+
 
     public void use() {
         GL11.glColor4d(r, g, b, alpha);

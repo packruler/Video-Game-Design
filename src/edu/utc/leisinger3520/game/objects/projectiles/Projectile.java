@@ -17,25 +17,21 @@ public class Projectile extends Entity {
     private static final Vector2f MAX_VELOCITY = new Vector2f(1f, 1f);
 
     public Projectile(int x, int y, float xV, float yV) {
-        this.x = x;
-        this.y = y;
-        width = WIDTH;
-        height = HEIGHT;
+        super(x, y, HEIGHT, WIDTH);
         velocity.set(xV, yV);
         mass = 2;
 
-        init();
     }
 
     @Override
     public void update(float delta) {
         Gravity.getInstance().updateVelocity(velocity, mass, delta);
 
-        x += velocity.getX() * delta;
-        y += velocity.getY() * delta;
+        setX((int) (velocity.getX() * delta));
+        setY((int) (velocity.getY() * delta));
 
-        if (x > Display.getWidth() || x < 0 ||
-                y > Display.getHeight() || y < -width)
+        if (getX() > Display.getWidth() || getY() < 0 ||
+                getY() > Display.getHeight() || getY() < -getHeight())
             active = false;
     }
 
@@ -44,10 +40,10 @@ public class Projectile extends Entity {
         GL11.glColor3f(1f, 0, 0);
         GL11.glBegin(GL11.GL_QUADS);
 
-        GL11.glVertex2f(x, y);
-        GL11.glVertex2f(x + width, y);
-        GL11.glVertex2f(x + width, y + width);
-        GL11.glVertex2f(x, y + width);
+        GL11.glVertex2d(getX(), getY());
+        GL11.glVertex2d(getX() + getWidth(), getY());
+        GL11.glVertex2d(getX() + getWidth(), getY() + getHeight());
+        GL11.glVertex2d(getX(), getY() + getWidth());
 
         GL11.glEnd();
     }
