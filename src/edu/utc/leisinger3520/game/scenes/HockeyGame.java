@@ -6,6 +6,7 @@ import edu.utc.leisinger3520.game.objects.characters.Player;
 import edu.utc.leisinger3520.game.objects.characters.PlayerLeft;
 import edu.utc.leisinger3520.game.objects.characters.PlayerRight;
 import edu.utc.leisinger3520.game.objects.characters.Puck;
+import edu.utc.leisinger3520.game.objects.ground.CenterLine;
 import edu.utc.leisinger3520.game.objects.ground.Goal;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
@@ -39,11 +40,12 @@ public class HockeyGame extends Scene {
         keyPress.put(Keyboard.KEY_W, 0L);
         keyPress.put(Keyboard.KEY_S, 0L);
 
+        objects.add(new Goal(false));
+        objects.add(new Goal(true));
+        objects.add(new CenterLine());
         objects.add(playerLeft);
         objects.add(playerRight);
         objects.add(puck);
-        objects.add(new Goal(false));
-        objects.add(new Goal(true));
     }
 
     @Override

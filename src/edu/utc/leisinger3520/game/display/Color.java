@@ -45,6 +45,10 @@ public class Color {
         b = B;
     }
 
+    public void setAlpha(double a) {
+        this.alpha = a;
+    }
+
 
     public void use() {
         GL11.glColor4d(r, g, b, alpha);

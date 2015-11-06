@@ -3,6 +3,7 @@ package edu.utc.leisinger3520.game.objects;
 import edu.utc.leisinger3520.game.display.Color;
 import edu.utc.leisinger3520.game.logging.Log;
 import edu.utc.leisinger3520.game.objects.projectiles.Projectile;
+import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Vector2f;
 
 import java.util.concurrent.ExecutorService;
@@ -32,10 +33,6 @@ public abstract class Entity {
         hitbox.y = y;
         hitbox.width = width;
         hitbox.height = height;
-    }
-
-    public void destroy() {
-
     }
 
     public void update(final float delta) {
@@ -69,7 +66,15 @@ public abstract class Entity {
     }
 
     public synchronized void draw() {
+        GL11.glBegin(GL11.GL_QUADS);
 
+        fill.use();
+        GL11.glVertex2d(getX(), getY());
+        GL11.glVertex2d(getX() + getWidth(), getY());
+        GL11.glVertex2d(getX() + getWidth(), getY() + getHeight());
+        GL11.glVertex2d(getX(), getY() + getHeight());
+
+        GL11.glEnd();
     }
 
     public static void closePool() {
