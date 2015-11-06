@@ -27,7 +27,6 @@ public class Main {
         scene = new HockeyGame();
 
 
-
         while (!Display.isCloseRequested()) {
 
             // UPDATE DISPLAY
@@ -37,9 +36,9 @@ public class Main {
             now = System.currentTimeMillis();
 
 
-
-                // DRAW OBJECTS
-                scene.drawFrame(delta);
+            // DRAW OBJECTS
+            if (scene.drawFrame(delta))
+                scene = new HockeyGame();
 
         }
         Entity.closePool();

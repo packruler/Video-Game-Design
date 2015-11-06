@@ -68,7 +68,7 @@ public class HockeyGame extends Scene {
         else if (result == 1)
             Log.i("Goal Right");
 
-        return false;
+        return result != 0;
     }
 
     private void keyCheck() {
