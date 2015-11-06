@@ -14,8 +14,8 @@ import java.util.TreeSet;
  * Created by Ethan Leisinger on 10/21/2015.
  */
 public class GridGame extends Scene {
-    public int colCount = 50;
-    public int rowCount = 50;
+    public int colCount = 100;
+    public int rowCount = 100;
     public GridCell[][] grid = new GridCell[colCount][rowCount];
     public final int cellHeight, cellWidth;
     private GridCell player = null;
@@ -91,7 +91,7 @@ public class GridGame extends Scene {
     }
 
     public List<GridCell> findPath(GridCell from, GridCell to) {
-        TreeSet<GridCell> needToVisit = new TreeSet<>();
+        LinkedList<GridCell> needToVisit = new LinkedList<>();
         from.setPathCost(0);
 
         needToVisit.addAll(getNeighbors(from));

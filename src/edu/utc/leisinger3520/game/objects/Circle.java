@@ -16,14 +16,10 @@ public class Circle extends Entity {
     public synchronized void draw() {
         GL11.glPolygonMode(GL11.GL_FRONT_AND_BACK, GL11.GL_FILL);
 
-        float radius = (float) (hitbox.getWidth() / 2);
-        float x = (float) (hitbox.getX() + radius);
-        float y = (float) (hitbox.getY() + radius);
+        float radius = (float) (getWidth() / 2);
+        float x = (float) (getX() + radius);
+        float y = (float) (getY() + radius);
 
-
-//        GL11.glPushMatrix();
-//        GL11.glTranslatef(x, y, 0);
-//        GL11.glScalef(radius, radius, 1);
 
         GL11.glBegin(GL11.GL_TRIANGLE_FAN);
         GL11.glColor3f(0, 0, 0);
@@ -38,5 +34,25 @@ public class Circle extends Entity {
         }
 
         GL11.glEnd();
+    }
+
+    public double getCenterX() {
+        return getX() + getRadius();
+    }
+
+    public double getCenterY() {
+        return getY() + getRadius();
+    }
+
+    public double getRadius() {
+        return getWidth() / 2;
+    }
+
+    @Override
+    public synchronized boolean intersects(Entity other) {
+        if (!(other instanceof Circle))
+            return false;
+
+        if (Math.abs(((Circle) other).getCenterX()- getCenterX()))
     }
 }
