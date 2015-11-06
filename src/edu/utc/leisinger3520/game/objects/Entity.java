@@ -5,7 +5,6 @@ import edu.utc.leisinger3520.game.logging.Log;
 import edu.utc.leisinger3520.game.objects.projectiles.Projectile;
 import org.lwjgl.util.vector.Vector2f;
 
-import java.awt.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -14,9 +13,9 @@ import java.util.concurrent.Future;
  * Created by Ethan Leisinger on 8/24/2015.
  */
 public abstract class Entity {
-    public Rectangle hitbox = new Rectangle();
+    public Hitbox hitbox = new Hitbox();
     protected Vector2f velocity = new Vector2f();
-    protected float mass = 0;
+    protected float mass = 1;
     protected edu.utc.leisinger3520.game.display.Color fill = new Color(0, 0, 0);
 
     private static ExecutorService backgroundPool = Executors.newFixedThreadPool(4);
@@ -78,17 +77,11 @@ public abstract class Entity {
         Log.i("Pool closed");
     }
 
-    public void onKeyDown(final int keyDown) {
-
-    }
 
     public synchronized boolean isCollision(Entity other) {
         return hitbox.intersects(other.hitbox);
     }
 
-    public synchronized Rectangle intersection(Entity other) {
-        return hitbox.intersection(other.hitbox);
-    }
 
     public synchronized void onCollision(Entity other) {
         if (other instanceof Projectile)
@@ -108,7 +101,7 @@ public abstract class Entity {
     }
 
     public void setX(int x) {
-        hitbox.setLocation(x, (int) getY());
+        hitbox.setX(x);
     }
 
     public double getY() {
@@ -116,7 +109,7 @@ public abstract class Entity {
     }
 
     public void setY(int y) {
-        hitbox.setLocation((int) getX(), y);
+        hitbox.setY(y);
     }
 
     public double getWidth() {

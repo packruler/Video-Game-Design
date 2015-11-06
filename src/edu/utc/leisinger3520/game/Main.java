@@ -1,12 +1,9 @@
 package edu.utc.leisinger3520.game;
 
-import edu.utc.leisinger3520.game.gridStuff.GridGame;
-import edu.utc.leisinger3520.game.logging.Log;
 import edu.utc.leisinger3520.game.objects.Entity;
-import edu.utc.leisinger3520.game.scenes.PolygonDrawTest;
+import edu.utc.leisinger3520.game.scenes.HockeyGame;
 import edu.utc.leisinger3520.game.scenes.Scene;
 import org.lwjgl.LWJGLException;
-import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import org.lwjgl.opengl.GL11;
@@ -15,7 +12,7 @@ import org.lwjgl.opengl.GL11;
  * Created by Ethan Leisinger on 10/21/2015.
  */
 public class Main {
-    public static final int TARGET_FPS = 60;
+    public static final int TARGET_FPS = 30;
     public static final int SCR_WIDTH = 1280;
     public static final int SCR_HEIGHT = 720;
 
@@ -27,9 +24,9 @@ public class Main {
         long now = System.currentTimeMillis();
         long delta;
 
-        scene = new PolygonDrawTest();
+        scene = new HockeyGame();
 
-        long lastReset = System.currentTimeMillis();
+
 
         while (!Display.isCloseRequested()) {
 
@@ -39,16 +36,10 @@ public class Main {
             delta = System.currentTimeMillis() - now;
             now = System.currentTimeMillis();
 
-            if (Keyboard.isKeyDown(Keyboard.KEY_SPACE) && now - lastReset > 500) {
-                long startReset = System.nanoTime();
-                scene = new GridGame();
-                lastReset = now;
-                long finish = System.nanoTime();
-                Log.i("Reset took: " + (finish - startReset) / 1000000f + " ms");
-            }
 
-            // DRAW OBJECTS
-            scene.drawFrame(delta);
+
+                // DRAW OBJECTS
+                scene.drawFrame(delta);
 
         }
         Entity.closePool();

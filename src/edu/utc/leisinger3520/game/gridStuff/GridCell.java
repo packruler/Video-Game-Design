@@ -27,7 +27,7 @@ public class GridCell extends Entity implements Comparable<GridCell> {
     private GridCell fromCell = null;
 
     public GridCell(int col, int row, GridGame game, int status) {
-        hitbox.setBounds(col * game.cellWidth, row * game.cellHeight, game.cellWidth, game.cellHeight);
+        hitbox.setRect(col * game.cellWidth, row * game.cellHeight, game.cellWidth, game.cellHeight);
         this.col = col;
         this.row = row;
         this.game = game;

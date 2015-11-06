@@ -28,7 +28,7 @@ public class MouseFollower extends Entity {
             texture = TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream(pngPath));
             wr = (1.0f) * texture.getImageWidth() / texture.getImageHeight();
             hr = (1.0f) * texture.getImageHeight() / texture.getImageWidth();
-            hitbox.setRect(300, 300, width, width * hr);
+            hitbox.setRect(300, 300, width, (int) (width * hr));
 
         } catch (java.io.IOException e) {
             e.printStackTrace();
