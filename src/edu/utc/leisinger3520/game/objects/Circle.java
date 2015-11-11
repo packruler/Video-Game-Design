@@ -12,7 +12,7 @@ import org.lwjgl.util.vector.Vector2f;
 public class Circle extends Entity {
     private static final int NUM_SEGMENTS = 360;
     protected Color fill;
-    protected float maxV = .8f;
+    protected float maxV = .5f;
     protected float bounceScalar = .8f;
 
     public Circle(int x, int y, int radius) {
@@ -118,12 +118,6 @@ public class Circle extends Entity {
         other.setX((int) (other.getX() + mtd.getX() * (im2 / (im1 + im2))));
         other.setY((int) (other.getY() + mtd.getY() * (im2 / (im1 + im2))));
 
-//        thisPos.set(thisPos.getX() + mtd.getX() * (im1 / (im1 + im2)),
-//                thisPos.getY() + mtd.getY() * (im1 / (im1 + im2)));
-//
-//        otherPos.set(otherPos.getX() + mtd.getX() * (im2 / (im1 + im2)),
-//                otherPos.getY() + mtd.getY() * (im2 / (im1 + im2)));
-
         Vector2f v = Vector2f.sub(velocity, other.velocity, null);
         float vn = Vector2f.dot(v, mtd.normalise(null));
         if (vn > 0f) {
@@ -138,14 +132,9 @@ public class Circle extends Entity {
         Vector2f.add(velocity, (Vector2f) impulse.scale(im1), velocity);
         Vector2f.sub(other.velocity, (Vector2f) impulse.scale(im2), other.velocity);
 
-//        float thisVX = (velocity.x * (mass - other.mass) + (2 * other.mass * other.velocity.x) / (mass + other.mass));
-//        float thisVY = (velocity.y * (mass - other.mass) + (2 * other.mass * other.velocity.y) / (mass + other.mass));
-//
-//        float otherVX = (other.velocity.x * (other.mass - mass) + (2 * mass * velocity.x) / (other.mass + mass));
-//        float otherVY = (other.velocity.y * (other.mass - mass) + (2 * mass * velocity.y) / (other.mass + mass));
-//
-//        velocity.set(thisVX, thisVY);
-//        other.velocity.set(otherVX, otherVY);
-//        Log.i(velocity);
+        if (velocity.getX() == Float.NaN || velocity.getY() == Float.NaN)
+            velocity.set(0, 0);
+        if (other.velocity.getX() == Float.NaN || other.velocity.getY() == Float.NaN)
+            other.velocity.set(0, 0);
     }
 }

@@ -50,9 +50,9 @@ public class Puck extends Circle {
 
     public int isGoal() {
         if (inGoalY())
-            if (getX() <= 0)
+            if (getX() <= -getWidth())
                 return -1;
-            else if (getX() + getWidth() >= Display.getWidth())
+            else if (getX() >= Display.getWidth())
                 return 1;
         return 0;
     }

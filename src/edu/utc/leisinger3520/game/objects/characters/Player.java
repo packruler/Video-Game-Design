@@ -7,7 +7,6 @@ import edu.utc.leisinger3520.game.objects.Circle;
  */
 public class Player extends Circle {
     public static final int RADIUS = 60;
-    public int maxV = 5;
     protected float acceleration = 1 / 20f;
 
     public Player(int x, int y) {
@@ -21,7 +20,7 @@ public class Player extends Circle {
 //        if (y < -maxV)
 //            y = -maxV;
         velocity.setY(y);
-        mass=20;
+        mass=50;
     }
 
     public void onMoveDown() {
