@@ -1,7 +1,7 @@
 package edu.utc.leisinger3520.game.scenes;
 
-import edu.utc.leisinger3520.game.logging.Log;
 import edu.utc.leisinger3520.game.objects.Entity;
+import edu.utc.leisinger3520.game.objects.ScoreBoard;
 import edu.utc.leisinger3520.game.objects.characters.Player;
 import edu.utc.leisinger3520.game.objects.characters.PlayerLeft;
 import edu.utc.leisinger3520.game.objects.characters.PlayerRight;
@@ -28,6 +28,7 @@ public class HockeyGame extends Scene {
     private HashMap<Integer, Long> keyPress = new HashMap<>(9);
     private boolean vsAI = false;
 
+    public static ScoreBoard SCORE_BOARD = new ScoreBoard();
 
     public HockeyGame() {
         keyPress.put(Keyboard.KEY_SPACE, 0L);
@@ -46,6 +47,7 @@ public class HockeyGame extends Scene {
         objects.add(playerLeft);
         objects.add(playerRight);
         objects.add(puck);
+        objects.add(SCORE_BOARD);
     }
 
     @Override
@@ -58,17 +60,22 @@ public class HockeyGame extends Scene {
             puck.onCollision(playerLeft);
         else if (puck.isCollision(playerRight))
             puck.onCollision(playerRight);
-        int result = puck.isGoal();
 
+        int result = puck.isGoal();
 
         for (Entity current : objects) {
             current.update(delta);
             current.draw();
         }
-        if (result == -1)
-            Log.i("Goal Left");
-        else if (result == 1)
-            Log.i("Goal Right");
+
+        switch (result) {
+            case -1:
+                SCORE_BOARD.scoreRight();
+                break;
+            case 1:
+                SCORE_BOARD.scoreLeft();
+                break;
+        }
 
         return result != 0;
     }
