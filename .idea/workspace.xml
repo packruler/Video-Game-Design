@@ -2,31 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6b63d5c-139c-4e47-a7a6-23dcb366723d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/display/MenuText.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/scenes/PauseScreen.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/MainDeprecated.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/gridStuff/GridCell.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/gridStuff/GridGame.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/MouseFollower.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/Jumper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/ground/Platform.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/projectiles/Projectile.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/scenes/CameraTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/scenes/MainGame.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/scenes/PlatformTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/edu/utc/tanis/Entity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/edu/utc/tanis/Jumper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/edu/utc/tanis/JumperTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/edu/utc/tanis/Platform.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/ground/CenterLine.java" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/display/CenterLine.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/ground/Goal.java" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/display/Goal.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/Main.java" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/Entity.java" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/Entity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/ScoreBoard.java" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/ScoreBoard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/Puck.java" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/characters/Puck.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/scenes/HockeyGame.java" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/scenes/HockeyGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/scenes/Scene.java" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/scenes/Scene.java" />
     </list>
     <ignored path="Video Game Design.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -894,7 +870,7 @@
       <workItem from="1448311703841" duration="2025000" />
       <workItem from="1448476291574" duration="398000" />
       <workItem from="1448488885691" duration="3758000" />
-      <workItem from="1448665610585" duration="1399000" />
+      <workItem from="1448665610585" duration="1434000" />
     </task>
     <task id="LOCAL-00001" summary="So many cells">
       <created>1446044493473</created>
@@ -962,11 +938,17 @@
       <option name="project" value="LOCAL" />
       <updated>1448667001930</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Pause Menu">
+      <created>1448667026471</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1448667026471</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139868000" />
+    <option name="totallyTimeSpent" value="139903000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="31" width="3200" height="1769" extended-state="6" />
@@ -1019,7 +1001,8 @@
     <MESSAGE value="Add support for Linux" />
     <MESSAGE value="Scoreboard" />
     <MESSAGE value="Cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup" />
+    <MESSAGE value="Pause Menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pause Menu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
