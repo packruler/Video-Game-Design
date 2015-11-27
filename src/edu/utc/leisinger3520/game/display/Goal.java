@@ -1,4 +1,4 @@
-package edu.utc.leisinger3520.game.objects.ground;
+package edu.utc.leisinger3520.game.display;
 
 import edu.utc.leisinger3520.game.objects.Entity;
 import org.lwjgl.opengl.Display;

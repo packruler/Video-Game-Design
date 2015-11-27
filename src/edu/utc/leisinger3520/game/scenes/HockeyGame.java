@@ -6,8 +6,8 @@ import edu.utc.leisinger3520.game.objects.characters.Player;
 import edu.utc.leisinger3520.game.objects.characters.PlayerLeft;
 import edu.utc.leisinger3520.game.objects.characters.PlayerRight;
 import edu.utc.leisinger3520.game.objects.characters.Puck;
-import edu.utc.leisinger3520.game.objects.ground.CenterLine;
-import edu.utc.leisinger3520.game.objects.ground.Goal;
+import edu.utc.leisinger3520.game.display.CenterLine;
+import edu.utc.leisinger3520.game.display.Goal;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
@@ -51,20 +51,23 @@ public class HockeyGame extends Scene {
     }
 
     @Override
-    public boolean drawFrame(float delta) {
+    public boolean drawFrame(float delta, boolean update) {
         GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 
         keyCheck();
 
-        if (puck.isCollision(playerLeft))
-            puck.onCollision(playerLeft);
-        else if (puck.isCollision(playerRight))
-            puck.onCollision(playerRight);
+        if (update)
+            if (puck.isCollision(playerLeft))
+                puck.onCollision(playerLeft);
+            else if (puck.isCollision(playerRight))
+                puck.onCollision(playerRight);
+
 
         int result = puck.isGoal();
 
         for (Entity current : objects) {
-            current.update(delta);
+            if (update)
+                current.update(delta);
             current.draw();
         }
 

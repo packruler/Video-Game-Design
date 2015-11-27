@@ -5,5 +5,5 @@ package edu.utc.leisinger3520.game.scenes;
  */
 public abstract class Scene {
 
-    public abstract boolean drawFrame(float delta);
+    public abstract boolean drawFrame(float delta, boolean update);
 }

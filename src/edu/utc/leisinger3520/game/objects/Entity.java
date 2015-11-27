@@ -2,7 +2,6 @@ package edu.utc.leisinger3520.game.objects;
 
 import edu.utc.leisinger3520.game.display.Color;
 import edu.utc.leisinger3520.game.logging.Log;
-import edu.utc.leisinger3520.game.objects.projectiles.Projectile;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Vector2f;
 
@@ -89,8 +88,6 @@ public abstract class Entity {
 
 
     public synchronized void onCollision(Entity other) {
-        if (other instanceof Projectile)
-            other.setActive(false);
     }
 
     public synchronized boolean isActive() {

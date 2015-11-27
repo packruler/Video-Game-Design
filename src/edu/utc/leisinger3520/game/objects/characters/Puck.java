@@ -1,7 +1,7 @@
 package edu.utc.leisinger3520.game.objects.characters;
 
 import edu.utc.leisinger3520.game.objects.Circle;
-import edu.utc.leisinger3520.game.objects.ground.Goal;
+import edu.utc.leisinger3520.game.display.Goal;
 import org.lwjgl.opengl.Display;
 
 /**

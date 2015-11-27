@@ -2,8 +2,10 @@ package edu.utc.leisinger3520.game;
 
 import edu.utc.leisinger3520.game.objects.Entity;
 import edu.utc.leisinger3520.game.scenes.HockeyGame;
+import edu.utc.leisinger3520.game.scenes.PauseScreen;
 import edu.utc.leisinger3520.game.scenes.Scene;
 import org.lwjgl.LWJGLException;
+import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import org.lwjgl.opengl.GL11;
@@ -15,6 +17,9 @@ public class Main {
     public static final int TARGET_FPS = 60;
     public static final int SCR_WIDTH = 1280;
     public static final int SCR_HEIGHT = 720;
+    private static boolean SHUTDOWN = false;
+    private static boolean PAUSED = false;
+
 
     public static Scene scene;
 
@@ -25,9 +30,11 @@ public class Main {
         long delta;
 
         scene = new HockeyGame();
+        PauseScreen pauseScreen = new PauseScreen();
+        long escapePress = 0;
 
 
-        while (!Display.isCloseRequested()) {
+        while (!Display.isCloseRequested() && !SHUTDOWN) {
 
             // UPDATE DISPLAY
             Display.update();
@@ -35,10 +42,15 @@ public class Main {
             delta = System.currentTimeMillis() - now;
             now = System.currentTimeMillis();
 
+            if (Keyboard.isKeyDown(Keyboard.KEY_ESCAPE) && now - escapePress > 500)
+                PAUSED = !PAUSED;
 
             // DRAW OBJECTS
-            if (scene.drawFrame(delta))
+            if (scene.drawFrame(delta, !PAUSED))
                 scene = new HockeyGame();
+
+            if (PAUSED)
+                PAUSED = pauseScreen.drawFrame(delta, false);
 
         }
         Entity.closePool();
@@ -77,5 +89,18 @@ public class Main {
 //         GLU.gluPerspective(90f, 1.333f, 2f, -2f);
 //         GL11.glTranslated(0, 0, -500);
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
+    }
+
+    public static void shutdown() {
+        SHUTDOWN = true;
+    }
+
+    public static void restartGame() {
+        HockeyGame.SCORE_BOARD.reset();
+        resetGame();
+    }
+
+    public static void resetGame() {
+        scene = new HockeyGame();
     }
 }

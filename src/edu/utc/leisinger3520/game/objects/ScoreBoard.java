@@ -5,7 +5,6 @@ import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.*;
 import org.newdawn.slick.Color;
 
-import java.awt.*;
 import java.awt.Font;
 
 /**
@@ -41,8 +40,9 @@ public class ScoreBoard extends Entity {
 
     @Override
     public synchronized void draw() {
-        TrueTypeFont font = new TrueTypeFont(new Font("TAriel", Font.BOLD, 25), true);
-        font.drawString(Display.getWidth() / 2 - 25, 0, left + "  " + right, Color.black);
+        TrueTypeFont font = new TrueTypeFont(new Font("Ariel", Font.BOLD, 50), true);
+        font.drawString(0, 0, "" + left, Color.black);
+        font.drawString(Display.getWidth() - 40, 0, "" + right, Color.black);
         GL11.glBindTexture(GL11.GL_TEXTURE_2D, 0);
     }
 }
