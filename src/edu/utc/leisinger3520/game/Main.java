@@ -1,6 +1,7 @@
 package edu.utc.leisinger3520.game;
 
 import edu.utc.leisinger3520.game.objects.Entity;
+import edu.utc.leisinger3520.game.objects.ScoreBoard;
 import edu.utc.leisinger3520.game.scenes.HockeyGame;
 import edu.utc.leisinger3520.game.scenes.PauseScreen;
 import edu.utc.leisinger3520.game.scenes.Scene;
@@ -9,6 +10,11 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import org.lwjgl.opengl.GL11;
+import org.newdawn.slick.*;
+import org.newdawn.slick.Color;
+
+import java.awt.*;
+import java.awt.Font;
 
 /**
  * Created by Ethan Leisinger on 10/21/2015.
@@ -19,6 +25,7 @@ public class Main {
     public static final int SCR_HEIGHT = 720;
     private static boolean SHUTDOWN = false;
     private static boolean PAUSED = false;
+    private static boolean GAME_OVER = false;
 
 
     public static Scene scene;
@@ -46,11 +53,31 @@ public class Main {
                 PAUSED = !PAUSED;
 
             // DRAW OBJECTS
-            if (scene.drawFrame(delta, !PAUSED))
+            if (scene.drawFrame(delta, !PAUSED && !GAME_OVER))
                 scene = new HockeyGame();
 
             if (PAUSED)
                 PAUSED = pauseScreen.drawFrame(delta, false);
+
+            if (GAME_OVER)
+                PAUSED = true;
+
+            if (HockeyGame.SCORE_BOARD.getLeft() >= 5) {
+                GAME_OVER = true;
+
+                TrueTypeFont font = new TrueTypeFont(new Font("Times New Roman", Font.BOLD, 50), true);
+                font.drawString(Display.getWidth() / 2 + 50, Display.getHeight() / 2, "Player Left Wins!", Color.black);
+
+                GL11.glBindTexture(GL11.GL_TEXTURE_2D, 0);
+            } else if (HockeyGame.SCORE_BOARD.getRight() >= 5) {
+                GAME_OVER = true;
+
+                TrueTypeFont font = new TrueTypeFont(new Font("Times New Roman", Font.BOLD, 50), true);
+                font.drawString(Display.getWidth() / 2 + 50, Display.getHeight() / 2, "Player Right Wins!", Color.black);
+
+                GL11.glBindTexture(GL11.GL_TEXTURE_2D, 0);
+            }
+
 
         }
         Entity.closePool();
@@ -96,6 +123,7 @@ public class Main {
     }
 
     public static void restartGame() {
+        GAME_OVER = false;
         HockeyGame.SCORE_BOARD.reset();
         resetGame();
     }

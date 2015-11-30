@@ -62,14 +62,14 @@ public class HockeyGame extends Scene {
             else if (puck.isCollision(playerRight))
                 puck.onCollision(playerRight);
 
-
-        int result = puck.isGoal();
-
         for (Entity current : objects) {
             if (update)
                 current.update(delta);
             current.draw();
         }
+
+
+        int result = puck.isGoal();
 
         switch (result) {
             case -1:
