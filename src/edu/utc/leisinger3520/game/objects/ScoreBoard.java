@@ -8,7 +8,7 @@ import org.newdawn.slick.Color;
 import java.awt.Font;
 
 /**
- * Created by packruler on 11/23/15.
+ * Created by Ethan Leisinger on 11/23/15.
  */
 public class ScoreBoard extends Entity {
     private int left, right;
