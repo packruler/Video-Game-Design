@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e6b63d5c-139c-4e47-a7a6-23dcb366723d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/display/MenuText.java" afterPath="$PROJECT_DIR$/src/edu/utc/leisinger3520/game/display/MenuText.java" />
     </list>
     <ignored path="Video Game Design.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -81,16 +80,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.06212425">
               <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScoreBoard.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/edu/utc/leisinger3520/game/objects/ScoreBoard.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -954,7 +943,7 @@
       <workItem from="1452100305339" duration="629000" />
       <workItem from="1452101097494" duration="102000" />
       <workItem from="1452106427860" duration="46000" />
-      <workItem from="1453254782993" duration="1173000" />
+      <workItem from="1453254782993" duration="1822000" />
     </task>
     <task id="LOCAL-00001" summary="So many cells">
       <created>1446044493473</created>
@@ -1064,11 +1053,17 @@
       <option name="project" value="LOCAL" />
       <updated>1453302883591</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Minor Tweaks">
+      <created>1453302960858</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1453302960858</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149643000" />
+    <option name="totallyTimeSpent" value="150292000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="31" width="3200" height="1769" extended-state="6" />
