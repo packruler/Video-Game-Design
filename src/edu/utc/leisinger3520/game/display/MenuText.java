@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.Font;
 
 /**
- * Created by packruler on 11/25/15.
+ * Created by Ethan Leisinger on 11/25/15.
  */
 public class MenuText extends Entity {
     private int x, y, fontSize;
