@@ -1,7 +1,6 @@
 package edu.utc.leisinger3520.game;
 
 import edu.utc.leisinger3520.game.objects.Entity;
-import edu.utc.leisinger3520.game.objects.ScoreBoard;
 import edu.utc.leisinger3520.game.scenes.HockeyGame;
 import edu.utc.leisinger3520.game.scenes.PauseScreen;
 import edu.utc.leisinger3520.game.scenes.Scene;
@@ -13,7 +12,6 @@ import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.*;
 import org.newdawn.slick.Color;
 
-import java.awt.*;
 import java.awt.Font;
 
 /**
