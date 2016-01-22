@@ -2,7 +2,7 @@
 <project name="video_game_design" default="all">
   
   
-  <property file="video_game_design.properties"/>
+  <property file="build.properties"/>
   <!-- Uncomment the following property if no tests compilation is needed -->
   <!-- 
   <property name="skip.tests" value="true"/>
@@ -34,14 +34,14 @@
     <exclude name="**/vssver2.scc/**"/>
   </patternset>
   <patternset id="library.patterns">
-    <include name="*.war"/>
-    <include name="*.swc"/>
-    <include name="*.apk"/>
-    <include name="*.zip"/>
     <include name="*.egg"/>
-    <include name="*.ane"/>
     <include name="*.jar"/>
     <include name="*.ear"/>
+    <include name="*.apk"/>
+    <include name="*.swc"/>
+    <include name="*.war"/>
+    <include name="*.ane"/>
+    <include name="*.zip"/>
   </patternset>
   <patternset id="compiler.resources">
     <exclude name="**/?*.java"/>
@@ -96,18 +96,6 @@
     <pathelement location="${basedir}/../../../Documents/lwjgl-2.9.3/jar/lwjgl_util.jar"/>
     <pathelement location="${basedir}/../../../Documents/lwjgl-2.9.3/slick-util.jar"/>
   </path>
-  <!-- Register Custom Compiler Taskdefs -->
-  <property name="javac2.home" value="${idea.home}/lib"/>
-  <path id="javac2.classpath">
-    <pathelement location="${javac2.home}/javac2.jar"/>
-    <pathelement location="${javac2.home}/jdom.jar"/>
-    <pathelement location="${javac2.home}/asm-all.jar"/>
-    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
-  </path>
-  <target name="register.custom.compilers">
-    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
-    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
-  </target>
   
   <!-- Modules -->
   
@@ -170,15 +158,15 @@
   
   <target name="compile.module.video_game_design" depends="compile.module.video_game_design.production,compile.module.video_game_design.tests" description="Compile module Video Game Design"/>
   
-  <target name="compile.module.video_game_design.production" depends="register.custom.compilers" description="Compile module Video Game Design; production classes">
+  <target name="compile.module.video_game_design.production" description="Compile module Video Game Design; production classes">
     <mkdir dir="${video_game_design.output.dir}"/>
-    <javac2 destdir="${video_game_design.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.video_game_design}/javac">
+    <javac destdir="${video_game_design.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.video_game_design}/javac">
       <compilerarg line="${compiler.args.video_game_design}"/>
       <bootclasspath refid="video_game_design.module.bootclasspath"/>
       <classpath refid="video_game_design.module.production.classpath"/>
       <src refid="video_game_design.module.sourcepath"/>
       <patternset refid="excluded.from.compilation.video_game_design"/>
-    </javac2>
+    </javac>
     
     <copy todir="${video_game_design.output.dir}">
       <fileset dir="${module.video_game_design.basedir}/src">
@@ -188,7 +176,7 @@
     </copy>
   </target>
   
-  <target name="compile.module.video_game_design.tests" depends="register.custom.compilers,compile.module.video_game_design.production" description="compile module Video Game Design; test classes" unless="skip.tests"/>
+  <target name="compile.module.video_game_design.tests" depends="compile.module.video_game_design.production" description="compile module Video Game Design; test classes" unless="skip.tests"/>
   
   <target name="clean.module.video_game_design" description="cleanup module">
     <delete dir="${video_game_design.output.dir}"/>
@@ -203,5 +191,37 @@
   
   <target name="build.modules" depends="init, clean, compile.module.video_game_design" description="build all modules"/>
   
-  <target name="all" depends="build.modules" description="build all"/>
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.video_game_design:jar" value="${basedir}"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.Video Game Design.jar" value="${artifacts.temp.dir}/Video Game Design.jar"/>
+  </target>
+  
+  <target name="artifact.video_game_design:jar" depends="init.artifacts, compile.module.video_game_design" description="Build &#39;Video Game Design:jar&#39; artifact">
+    <property name="artifact.temp.output.video_game_design:jar" value="${artifacts.temp.dir}/Video_Game_Design_jar"/>
+    <mkdir dir="${artifact.temp.output.video_game_design:jar}"/>
+    <jar destfile="${temp.jar.path.Video Game Design.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${video_game_design.output.dir}"/>
+      <zipfileset src="${basedir}/../../../Documents/lwjgl-2.9.3/jar/lwjgl.jar"/>
+      <zipfileset src="${basedir}/../../../Documents/lwjgl-2.9.3/jar/lwjgl_util.jar"/>
+      <zipfileset src="${basedir}/../../../Documents/lwjgl-2.9.3/slick-util.jar"/>
+      <zipfileset file="${basedir}/../../../Documents/lwjgl-2.9.3/jar/lwjgl.jar"/>
+      <zipfileset file="${basedir}/../../../Documents/lwjgl-2.9.3/jar/lwjgl_util.jar"/>
+      <zipfileset file="${basedir}/../../../Documents/lwjgl-2.9.3/slick-util.jar"/>
+    </jar>
+    <copy file="${temp.jar.path.Video Game Design.jar}" tofile="${artifact.temp.output.video_game_design:jar}/Video Game Design.jar"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.video_game_design:jar" description="Build all artifacts">
+    <mkdir dir="${artifact.output.video_game_design:jar}"/>
+    <copy todir="${artifact.output.video_game_design:jar}">
+      <fileset dir="${artifact.temp.output.video_game_design:jar}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
 </project>

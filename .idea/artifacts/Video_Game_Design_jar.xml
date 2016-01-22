@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Video Game Design:jar">
+    <output-path>$PROJECT_DIR$/</output-path>
+    <root id="archive" name="Video Game Design.jar">
+      <element id="module-output" name="Video Game Design" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/lwjgl-2.9.3/jar/lwjgl.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/lwjgl-2.9.3/jar/lwjgl_util.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/lwjgl-2.9.3/slick-util.jar" path-in-jar="/" />
+      <element id="library" level="project" name="lwjgl" />
+    </root>
+  </artifact>
+</component>
