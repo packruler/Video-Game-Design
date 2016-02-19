@@ -1,5 +1,6 @@
 package edu.utc.leisinger3520.game.scenes;
 
+import edu.utc.leisinger3520.game.logging.Log;
 import edu.utc.leisinger3520.game.objects.Entity;
 import edu.utc.leisinger3520.game.objects.ScoreBoard;
 import edu.utc.leisinger3520.game.objects.characters.Player;
@@ -70,13 +71,15 @@ public class HockeyGame extends Scene {
 
 
         int result = puck.isGoal();
-
         switch (result) {
             case -1:
                 SCORE_BOARD.scoreRight();
                 break;
             case 1:
                 SCORE_BOARD.scoreLeft();
+                break;
+            default:
+                Log.i("No goal");
                 break;
         }
 
