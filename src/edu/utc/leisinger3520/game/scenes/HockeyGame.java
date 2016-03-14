@@ -86,6 +86,7 @@ public class HockeyGame extends Scene {
         return result != 0;
     }
 
+
     private void keyCheck() {
         long now = System.currentTimeMillis();
         if (Keyboard.isKeyDown(Keyboard.KEY_SPACE) && now - keyPress.get(Keyboard.KEY_SPACE) > keyDelay) {
