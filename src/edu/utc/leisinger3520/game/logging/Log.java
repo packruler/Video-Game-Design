@@ -6,16 +6,16 @@ package edu.utc.leisinger3520.game.logging;
 public class Log {
 
     public static void i(Object message) {
-        if (message instanceof CharSequence)
-            System.out.println(message);
-        else
-            System.out.println(message.toString());
+//        if (message instanceof CharSequence)
+//            System.out.println(message);
+//        else
+//            System.out.println(message.toString());
     }
 
     public static void e(Object message) {
-        if (message instanceof CharSequence)
-            System.err.println(message);
-        else
-            System.err.println(message.toString());
+//        if (message instanceof CharSequence)
+//        System.err.println(message);
+//        else
+//        System.err.println(message.toString());
     }
 }

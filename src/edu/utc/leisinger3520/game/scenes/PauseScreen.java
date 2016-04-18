@@ -50,7 +50,7 @@ public class PauseScreen extends Scene {
             menu[selected].setSelected(true);
         }
 
-        if (Keyboard.isKeyDown(Keyboard.KEY_RETURN)) {
+        if (Keyboard.isKeyDown(Keyboard.KEY_SPACE  )) {
             switch (selected) {
                 case RESUME:
                     return false;
